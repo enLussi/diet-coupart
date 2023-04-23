@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+
+{% include "_partials/_nav.html.twig" %}
+{% include "_partials/_header_second.html.twig" with {'title': 'Formulaire de contact' } %}
+<main class="mx-3">
+  <section class="container-xl contact-form">
+    <div class="row">
+      <div class="col">
+
+        {{ form_start(registrationForm) }}
+          <fieldset>
+            <legend>Identité</legend>
+            {{ form_row(registrationForm.firstname) }}
+            {{ form_row(registrationForm.lastname) }}
+            
+          </fieldset>
+          
+          <fieldset>
+            <legend>Coordonnées</legend>
+            {{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.phone) }}
+          </fieldset>
+
+          <fieldset>
+            <legend>Message</legend>
+            {{ form_widget(registrationForm.message) }}
+          </fieldset>
+
+          {{ form_row(registrationForm.RGPDConsent) }}
+
+          <button type="submit" class="btn btn-peach">Envoyer</button>
+        {{ form_end(registrationForm) }}
+      </div>
+    </div>
+  </section>
+</main>
+{% include "_partials/_footer.html.twig" %}
+
+{% endblock %}

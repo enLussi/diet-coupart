@@ -1,0 +1,21 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=Caveat&display=swap');
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Abril Fatface', sans-serif;
+  color: #1E1E24;
+}
+
+p, a, span, table {
+  font-family: 'Arsenal';
+  color: #1E1E24;
+}
+
+.signature {
+  font-family: 'Caveat';
+  color: #1E1E24;
+}
+
+.bolder {
+  font-weight: 600;
+}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ recette.title }}{% endblock %}
+
+{% block javascripts %}
+<script defer async src="/assets/js/avis.js"></script>
+{% endblock %}
+
+{% block body %}
+
+    {% include "_partials/_nav.html.twig" %}
+    {% include "_partials/_header_recipe.html.twig" %}
+
+    {% include "_partials/_recette.html.twig"%}
+
+    {% include "_partials/_footer.html.twig" %}
+{% endblock %}

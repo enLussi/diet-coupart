@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+
+    <button 
+      class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#navbarDiet" 
+      aria-controls="navbarDiet" 
+      aria-expanded="false" 
+      aria-label="Toggle navigation"
+    ><span class="navbar-toggler-icon"></span></button>
+
+
+    <div class="collapse navbar-collapse " id="navbarDiet">
+      <div class="navbar-link">
+
+        {% if app.user %}
+          <a class="" href="/logout">Me déconnecter</a>
+        {% else %}
+          <a class="" href="/login">Connexion</a>
+        {% endif %}
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="">
+            <a class="" aria-current="page" href="/">Accueil</a>
+          </li>
+          <li class="">
+            <a class="" href="/recipe">Recettes</a>
+          </li>
+          <li class="">
+            <a class="" href="/appointment">Contact</a> 
+          </li>
+          {% if (app.user) and (is_granted('ROLE_PATIENT')) %}
+          <li class="">
+            <a class="" href="/profil">Information Patient</a> 
+          </li>
+          {% endif %}
+          {% if (app.user) and (is_granted('ROLE_ADMIN')) %}
+          <li>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Admin
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/admin/recipe">Recettes</a></li>
+              <li><a class="dropdown-item" href="/admin/patient">Patients</a></li>
+              <li><a class="dropdown-item" href="/admin/ingredient">Ingrédients</a></li>
+            </ul>
+          </li>
+          {% endif %}
+          <li>
+            <form id="search" class="d-flex w-2" role="search" action="/recipe/" method="POST">
+              <input id="input-search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

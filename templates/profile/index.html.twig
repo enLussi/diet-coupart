@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vos Informations Personelles{% endblock %}
+
+{% block body %}
+
+    {% include "_partials/_nav.html.twig" %}
+    {% include "_partials/_header_second.html.twig" with {'title': 'Vos informations personnelles' } %}
+
+    {% include "_partials/_profil_patient.html.twig" %}
+
+    {% include "_partials/_footer.html.twig" %}
+
+{% endblock %}

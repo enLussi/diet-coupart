@@ -1,0 +1,27 @@
+<section class="recettes section-layout">
+  <div class="banner">
+    <div class="layer"></div>
+    
+  </div>
+  <h3>Mes Recettes</h3>
+  <div class="carousel" id="carousel">
+    <button id="previous"><img src="/assets/imgs/back.png"></button>
+    <div class="carousel-element" id="carousel-element">
+      <div class="list-recettes" id="list-recettes">
+        {% for recette in recettes %}
+          {% if app.user or not recette.isPremium %}
+          <div class="recette-card">
+            <img src="/assets/imgs/recipe/{{ recette.image }}">
+            <p>{{ recette.isPremium }}</p>
+            <p class="title">{{ recette.title }}</p>
+            <p class="info">Temps de préparation : {{ recette.makingTime | date('H:i') }}</p>
+            <p class="info">Calories : {{ recette.calories }} pour 100g</p>
+            <a class="btn btn-peach" href="/recipe/{{ recette.id }}">Voir la recette</a>
+          </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    <button id="next"><img src="/assets/imgs/back.png" class="next"></button>
+  </div>
+</section>

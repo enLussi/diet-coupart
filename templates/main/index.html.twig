@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sandrine Coupart - Diététicienne / Nutritionniste{% endblock %}
+
+{% block javascripts %}
+<script defer src="/assets/js/recetteCarousel.js"></script>
+{% endblock %}
+
+{% block body %}
+    {% include "_partials/_nav.html.twig" %}
+    {% include "_partials/_header_main.html.twig" %}
+
+    <div class="infos">
+        {% include "_partials/_apropos.html.twig" %}
+        {% include "_partials/_services.html.twig" %}
+    </div>
+
+    {% include "_partials/_section_recettes.html.twig" %}
+
+    {% include "_partials/_footer.html.twig" %}
+{% endblock %}

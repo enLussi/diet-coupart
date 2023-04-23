@@ -1,0 +1,32 @@
+.steps {
+
+  flex-grow: 1;
+  height: inherit;
+
+  padding-top: 130px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+
+  row-gap: 50px;
+
+  padding: 50px;
+
+  padding-bottom: 100px;
+
+  position: relative;
+
+  .signature {
+    position: absolute;
+
+    bottom: 0;
+    right: 0;
+
+    padding: 20px;
+
+    font-size: 40px;
+  }
+
+}

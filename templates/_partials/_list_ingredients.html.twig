@@ -1,0 +1,26 @@
+<section class="page-ingredient section-layout">
+  <a href="/admin/ingredient/add" class="btn btn-peach">Nouvel Ingrédient</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Ingrédients</th>
+        <th scope="col">Allergène</th>
+        <th scope="col">Commandes</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for ingredient in ingredients %}
+        <tr>
+          <th scope="row">{{ ingredient.id }}</th>
+          <td>{{ ingredient.label }}</td>
+          <td>{{ ingredient.allergen.label|default('Aucun') }}</td>
+          <td>
+            <a class="btn btn-peach" href="/admin/ingredient/edit/{{ ingredient.id }}">Modifier</a>
+            <a class="btn btn-danger btn-sm" href="/admin/ingredient/remove/{{ ingredient.id }}">Supprimer</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>

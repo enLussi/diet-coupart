@@ -1,0 +1,19 @@
+.page-legals {
+
+  margin: 20px;
+  padding: 20px;
+
+  display: flex;
+  justify-content: center;
+
+  article {
+
+    width: clamp(350px, 70%, 1000px);
+
+    p {
+      text-align: justify;
+    }
+
+  }
+
+}

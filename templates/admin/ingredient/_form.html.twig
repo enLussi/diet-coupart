@@ -1,0 +1,7 @@
+{{ form_start(ingredientForm) }}
+
+    {{ form_row(ingredientForm.label) }}
+    {{ form_row(ingredientForm.allergen) }}
+
+  <button type="submit" class="btn btn-peach btn-lg">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(ingredientForm) }}

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sandrine Coupart - Diététicienne / Nutritionniste{% endblock %}
+
+{% block body %}
+    {% include "_partials/_nav.html.twig" %}
+    {% include "_partials/_header_second.html.twig" with {'title': 'Liste des Patients' } %}
+
+    {% include "_partials/_list_patients.html.twig" %}
+    
+    {% include "_partials/_footer.html.twig" %}
+{% endblock %}

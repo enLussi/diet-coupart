@@ -1,0 +1,56 @@
+footer {
+
+  a, p, h3 {
+    text-decoration: none;
+    color: #ffffff;
+  }
+
+  background-color: #1E1E24;
+
+  color: #ffffff;
+  padding-top: 50px;
+  margin: 0;
+
+  .contact {
+    border-bottom: 2px solid black ;
+  }
+
+  .navigation {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: end;
+
+    padding: 20px 30px;
+
+    img {
+      @media screen and (min-width: 992px) {
+        width: 250px;
+      }
+
+      @media screen and (max-width: 992px) {
+        width: clamp(150px, 70%, 250px);
+      }
+
+      
+    }
+
+    div {
+      margin-left: 40px;
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+    }
+  }
+
+  .legals {
+    width: 100%;
+    p {
+      text-align: center;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}

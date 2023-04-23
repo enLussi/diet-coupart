@@ -1,0 +1,27 @@
+.contact-form {
+
+  padding: 30px 50px;
+
+  margin: 20px auto;
+
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+
+  input[type=text],input[type=email] {
+    width: clamp(300px, 100%, 600px);
+  }
+
+  fieldset > div {
+
+    margin-bottom: 20px;
+
+    label {
+      width: 100px;
+    }
+  }
+
+  button {
+    margin: 20px 0;
+  }
+
+}

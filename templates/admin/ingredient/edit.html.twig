@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sandrine Coupart - Diététicienne / Nutritionniste{% endblock %}
+
+{% block body %}
+    {% include "_partials/_nav.html.twig" %}
+    {% include "_partials/_header_second.html.twig" with {'title': 'Modifier l\'Ingrédient' } %}
+<main class="mx-3">
+    <section class="container contact-form">
+    <div class="row">
+      <div class="col">
+
+        {% include "/admin/ingredient/_form.html.twig" with {'button_label': 'Modifier'} %}
+        
+      </div>
+    </div>
+  </section>
+</main>  
+    {% include "_partials/_footer.html.twig" %}
+{% endblock %}

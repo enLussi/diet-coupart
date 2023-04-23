@@ -1,0 +1,42 @@
+<section class="page-recettes section-layout">
+  <a href="/admin/recipe/add" class="btn btn-peach">Nouvelle recette</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Titre</th>
+        <th scope="col">Régime</th>
+        <th scope="col">Accès</th>
+        <th scope="col">Commandes</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for recette in recettes %}
+        <tr>
+          <th scope="row">{{ recette.id }}</th>
+          <td>{{ recette.title }}</td>
+          <td>{{ recette.diet.label }}</td>
+          <td>{% if recette.isPremium %} Premium {% else %} Gratuit {% endif %}</td>
+          <td>
+            <a class="btn btn-peach" href="/admin/recipe/edit/{{ recette.id }}">Modifier</a>
+            <a class="btn btn-danger btn-sm" href="/admin/recipe/remove/{{ recette.id }}">Supprimer</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {# <div class="list-recettes">
+    {% for recette in recettes %}
+      {% if (app.user) or not recette.isPremium %}
+        <div class="recette-card">
+          <img src="/assets/imgs/recipe/{{ recette.image }}">
+          <p class="title">{{ recette.title }}</p>
+          <p class="info">Temps de préparation : {{ recette.makingTime | date('H:i') }}</p>
+          <p class="info">Calories : {{ recette.calories }} pour 100g</p>
+          <a class="btn btn-peach" href="/recipe/{{ recette.id }}">Voir la recette</a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div> #}
+</section>

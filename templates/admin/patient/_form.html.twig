@@ -1,0 +1,25 @@
+{{ form_start(registrationForm) }}
+  <fieldset>
+    <legend>Identité</legend>
+    {{ form_row(registrationForm.firstname) }}
+    {{ form_row(registrationForm.lastname) }}
+    {{ form_row(registrationForm.email) }}
+  </fieldset>
+  
+  <fieldset>
+    <legend>Coordonnées</legend>
+    {{ form_row(registrationForm.address) }}
+    {{ form_row(registrationForm.zipcode) }}
+    {{ form_row(registrationForm.city) }}
+  </fieldset>
+
+  <fieldset>
+    <legend>Santé</legend>
+    {{ form_row(registrationForm.allergens) }}
+  </fieldset>
+
+  {# {{ form_row(registrationForm.plainPassword) }}
+  {{ form_row(registrationForm.RGPDConsent) }} #}
+
+  <button type="submit" class="btn btn-peach btn-lg">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(registrationForm) }}

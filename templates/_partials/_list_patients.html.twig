@@ -1,0 +1,28 @@
+<section class="page-patient section-layout">
+  <a href="/admin/patient/add" class="btn btn-peach">Nouveau Patient</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Prénom</th>
+        <th scope="col">Adresse</th>
+        <th scope="col">Commandes</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for patient in patients %}
+        <tr>
+          <th scope="row">{{ patient.id }}</th>
+          <td>{{ patient.lastname }}</td>
+          <td>{{ patient.firstname }}</td>
+          <td>{{ patient.address }} - {{ patient.zipcode }} - {{ patient.city }}</td>
+          <td>
+            <a class="btn btn-peach" href="/admin/patient/edit/{{ patient.id }}">Modifier</a>
+            <a class="btn btn-danger btn-sm" href="/admin/patient/remove/{{ patient.id }}">Supprimer</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>

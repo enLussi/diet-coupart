@@ -1,0 +1,45 @@
+.apropos {
+
+  height: inherit;
+
+  padding-top: 130px;
+
+  @media screen and (min-width: 992px) {
+  min-width: 400px;
+  max-width: 500px;
+  }
+
+  @media screen and (max-width: 992px) {
+    width: 100%;
+
+  }
+
+  .banner{
+    width: inherit;
+    height: 200px;
+
+    position: relative;
+
+    
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: #C4AF9A;
+
+    &>img {
+      border-radius: 50%;
+    }
+  }
+
+  .presentation {
+    margin: 100px 50px;
+
+    p{
+      text-align: justify;
+    }
+  }
+}

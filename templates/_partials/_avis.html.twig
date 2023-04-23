@@ -1,0 +1,38 @@
+<section class="avis"> 
+  {% if app.user and is_granted('ROLE_PATIENT') %}
+  <div class="form-commentaire">
+    {{ form_start(commentForm) }}
+      <div class="stars">
+      {% for radio in commentForm.mark %}
+        <label class="star" for="comment_form_mark_{{ loop.index - 1 }}">
+          {{ form_widget(radio) }}
+          <i class="fas fa-star"></i>
+        </label>
+      {% endfor %}
+      </div>
+      {{ form_row(commentForm.message) }}
+      <button type="submit" class="btn btn-peach">Envoyer</button>
+    {{ form_end(commentForm) }}
+  </div>
+  {% endif %}
+  <div class="note">
+    <p>Avis</p>
+    {% for i in 1..5 %}
+      <p class="star-average {% if loop.index <= averageMark %}hover{% endif %}"><i class="fas fa-star"></i></p>
+    {% endfor %}
+  </div>
+  <div id="commentaires">
+  {% for avis in opinions %}
+    <div class="commentaire">
+      <p class="signature">{{ avis.author.firstname }} {{ avis.author.lastname }}</p>
+      <div class="note-commentaire">    
+        {% for i in 1..5 %}
+          <p class="star-comment {% if loop.index <= avis.mark %}hover{% endif %}"><i class="fas fa-star"></i></p>
+        {% endfor %}
+      </div>
+      <p class="message-commentaire">{{ avis.message }}</p>
+      <p class="date-commentaire">{{ avis.publishedDate | date('d/m/Y H:i') }}</p>
+    </div>
+  {% endfor %}
+  </div>
+</section>

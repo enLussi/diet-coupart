@@ -1,0 +1,17 @@
+.list_ingredients {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  row-gap: 5px;
+  column-gap: 5px;
+
+  .ingredient {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    column-gap: 5px;
+  }
+}

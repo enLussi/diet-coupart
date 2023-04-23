@@ -1,0 +1,51 @@
+.headerMain {
+
+  background-color: rgba(33, 161, 120, 0.85);
+
+  height: 880px;
+  width: 100%;
+
+  overflow: hidden;
+
+  position: relative;
+
+  &>img {
+    width: 1488px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+
+    transform: translate(-50%, -50%);
+  }
+
+  .header-banner {
+    width: 100%;
+    height: 200px;
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: #C4AF9A;
+
+    &>img {
+
+      @media screen and (min-width: 992px){
+        width: 650px;
+      }
+
+      @media screen and (max-width: 992px){
+        width: clamp(350px, 80%, 650px);
+      }
+      
+    }
+  }
+
+}

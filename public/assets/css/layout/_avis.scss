@@ -1,0 +1,145 @@
+.avis {
+
+  $star-size: 20px;
+
+  width: 1000px;
+
+  max-width: 90%;
+
+  margin: 20px auto;
+
+  display: flex;
+  flex-direction: column;
+
+  row-gap: 10px;
+
+  .form-commentaire form{
+
+    display: flex;
+    flex-direction: column;
+
+    row-gap: 10px;
+
+    .stars {
+      display: flex;
+      flex-direction: row;
+
+      column-gap: 5px;
+
+      input[type="radio"] {
+        visibility: hidden;
+      }
+
+      // input[type="radio"]:checked {
+      //   color: #ffcc00;
+      // }
+
+      .hover, .checked {
+        color: #ffcc00;
+      }
+
+      // label:hover ~ :not(label) {
+      //   color: #ffcc00;
+      // }
+
+      label {
+        display: inline-block;
+        cursor: pointer;
+        font-size: $star-size;
+        color: #ddd;
+
+        position: relative;
+
+        width: 30px;
+
+        &>i {
+          position: absolute;
+          top: 10px;
+          left: -6px;
+        }
+      }
+    }
+
+  }
+
+  .note {
+    padding-left: 20px;
+
+    font-size: 30px;
+
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+
+    .star-average {
+      display: inline-block;
+      cursor: pointer;
+      font-size: $star-size;
+      color: #ddd;
+
+      position: relative;
+
+      width: 30px;
+    }
+
+    .hover{
+      color: #ffcc00;
+    }
+  }
+
+  #commentaires {
+
+    display: flex;
+    flex-direction: column;
+
+    row-gap: 10px;
+
+  }
+
+  .commentaire {
+    border-radius: 15px;
+
+    border: 1px solid #C4AF9A;
+
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+
+    .note-commentaire{
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      flex-direction: row;
+      column-gap: 5px;
+
+      .star-comment {
+        display: inline-block;
+        cursor: pointer;
+        font-size: $star-size;
+        color: #ddd;
+  
+        position: relative;
+  
+        width: 30px;
+      }
+
+      .hover{
+        color: #ffcc00;
+      }
+    }
+
+    .message-commentaire {
+      text-align: justify;
+      padding: 10px 50px;
+    }
+
+    .date-commentaire {
+      text-align: end;
+    }
+  }
+}

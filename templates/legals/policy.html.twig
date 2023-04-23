@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Politique de Confidentialités{% endblock %}
+
+{% block body %}
+
+    {% include "_partials/_nav.html.twig" %}
+    {% include "_partials/_header_second.html.twig" with {'title': 'Politique de confidentialités' } %}
+
+    {% include "_partials/_policy.html.twig" %}
+
+    {% include "_partials/_footer.html.twig" %}
+
+{% endblock %}

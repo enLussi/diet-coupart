@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sandrine Coupart - Diététicienne / Nutritionniste{% endblock %}
+
+{% block javascripts %}
+<link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+<script defer src="/assets/js/allergen-select.js"></script>
+{% endblock %}
+
+{% block body %}
+    {% include "_partials/_nav.html.twig" %}
+    {% include "_partials/_header_second.html.twig" with {'title': 'Modifier le patient' } %}
+<main class="mx-3">
+    <section class="container contact-form">
+    <div class="row">
+      <div class="col">
+
+        {% include "/admin/patient/_form.html.twig" with {'button_label': 'Modifier'} %}
+        
+      </div>
+    </div>
+  </section>
+</main>  
+    {% include "_partials/_footer.html.twig" %}
+{% endblock %}

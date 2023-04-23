@@ -1,0 +1,10 @@
+<section class="profil section-layout">
+  <p class="profil-info">Nom et Prénom : <span class="bolder">{{ user.lastname }} {{ user.firstname }}</span></p>
+  <p class="profil-info">Votre Adresse : <span class="bolder">{{ user.address }} {{ user.zipcode }} {{ user.city }}</span></p>
+  <p class="profil-info">Votre Adresse mail : <span class="bolder">{{ user.email }}</span></p>
+  <p class="profil-info">Vos allergies : <span class="bolder">
+    {% for allergen in user.allergens %}
+      {{ allergen.displayLabel }},
+    {% endfor %}
+  </span></p>
+</section>
