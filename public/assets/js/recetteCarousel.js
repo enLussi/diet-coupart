@@ -8,7 +8,8 @@ let position = 1;
 let startPosition = 1;
 let increment = 1;
 
-if(listRecettes.length > 0) {
+if(listRecettes.children.length > 0) {
+  
   var maxElement = listRecettes.children.length;
   var cardWidth = listRecettes.children[0].clientWidth;
   var containerWidth = carouselElement.clientWidth;
