@@ -81,6 +81,17 @@ class RecipeController extends AbstractController
             $sum_mark += $o->getMark();
         }
 
+        $allergens = [];
+
+        foreach ($recipe->getIngredients() as $ingredient) {
+            if(!is_null($ingredient->getAllergen())){
+                $new_allergen = $ingredient->getAllergen();
+                if(!in_array($new_allergen->getDisplayLabel(), $allergens)) {
+                    array_push($allergens, $new_allergen->getDisplayLabel());
+                }
+            }
+        }
+
         if( count($opinions) > 0 ) {
             $average_mark = $sum_mark / count($opinions);
         }
@@ -99,7 +110,7 @@ class RecipeController extends AbstractController
                 'author' => $opinion->getAuthor()->getFirstname(). ' '.$opinion->getAuthor()->getLastname(),
                 'message' => $opinion->getMessage(),
                 'mark' => $opinion->getMark(),
-                'date' => $opinion->getpublishedDate()
+                'date' => $opinion->getpublishedDate(),
             ]);
         }
 
@@ -115,6 +126,7 @@ class RecipeController extends AbstractController
             'formDisplay' => $form_display,
             'opinions' => array_reverse($opinions),
             'averageMark' => $average_mark,
+            'allergens' => $allergens,
         ]);
         
 

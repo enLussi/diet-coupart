@@ -4,6 +4,17 @@
   </div>
   <div class="list">
     <ul>
+      <li><i class="fa-solid fa-hourglass-half"></i> Temps de préparation {{ recette.makingTime | date('i') }} min</li>
+      {% if recette.cookingTime | date('i') != "00" %}
+        <li><i class="fa-solid fa-kitchen-set"></i> Temps de cuisson {{ recette.cookingTime | date('i') }} min</li>
+      {% endif %}
+      {% if recette.cookingTime | date('i') != "00" %}
+      <li><i class="fa-solid fa-bread-slice"></i> Temps de repos {{ recette.cookingTime | date('i') }} min</li>
+      {% endif %}
+    </ul>
+  </div>
+  <div class="list">
+    <ul>
     {% for ingredient in recette.ingredients %}
       <li>{{ ingredient.label }}</li>
     {% endfor %}

@@ -10,6 +10,18 @@
     <p>{{ recette.steps|raw }}</p>
   </div>
 
+  <div class="charac">
+    <ul>
+      {% for allergen in allergens %}
+      <li>{{ allergen }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="charac">
+    <p>{{ recette.diet.label }}</p>
+  </div>
+
   <p class="signature">Bonne Dégustation</p>
 
 </div>

@@ -532,6 +532,29 @@ footer .legals p {
   padding-bottom: 100px;
   position: relative;
 }
+.steps .charac ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  row-gap: 10px;
+}
+.steps .charac ul li {
+  padding: 10px;
+  margin: 0;
+  border-radius: 15px;
+  background-color: #81AE9D;
+  color: white;
+}
+.steps .charac p {
+  padding: 10px;
+  margin: 0;
+  border-radius: 15px;
+  background-color: #FB9F89;
+  color: white;
+}
 .steps .signature {
   position: absolute;
   bottom: 0;
