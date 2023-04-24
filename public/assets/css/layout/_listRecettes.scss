@@ -1,9 +1,6 @@
 .page-recettes-clients {
 
-  position: relative;
-
   flex-grow: 1;
-  height: clamp(800px, 90vh, 1200px);
 
   margin: 20px;
 
@@ -18,6 +15,8 @@
   row-gap: 10px;
 
   .list-recettes {
+
+    min-height: 800px;
 
     padding: 20px;
 

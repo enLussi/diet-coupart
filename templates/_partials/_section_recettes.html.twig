@@ -7,7 +7,7 @@
   <div class="carousel" id="carousel">
     <button id="previous"><img src="/assets/imgs/back.png"></button>
     <div class="carousel-element" id="carousel-element">
-      <div class="list-recettes" id="list-recettes">
+      <div class="list-recettes list-recettes-carousel" id="list-recettes">
         {% for recette in recettes %}
           {% if app.user or not recette.isPremium %}
             {% include "_partials/_recipe_card.html.twig" %}

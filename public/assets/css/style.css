@@ -378,10 +378,13 @@ footer .legals p {
   height: 100%;
 }
 
-.list-recettes {
+.list-recettes-carousel {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.list-recettes {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -489,9 +492,7 @@ footer .legals p {
 }
 
 .page-recettes-clients {
-  position: relative;
   flex-grow: 1;
-  height: clamp(800px, 90vh, 1200px);
   margin: 20px;
   padding: 20px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
@@ -502,6 +503,7 @@ footer .legals p {
   row-gap: 10px;
 }
 .page-recettes-clients .list-recettes {
+  min-height: 800px;
   padding: 20px;
   flex-wrap: wrap;
 }
