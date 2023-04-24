@@ -84,8 +84,6 @@ class RecipesController extends AbstractController
     $form->handleRequest($request);
 
     if($form->isSubmitted() && $form->isValid()) {
-
-
       
       $isPremium = $form->get('isPremium')->getData();
       $recipe->setIsPremium($isPremium);
