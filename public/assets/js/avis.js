@@ -68,11 +68,21 @@ function addComment (data) {
   newComment.classList.add('commentaire');
   newComment.innerHTML = 
   '<p class="signature">'+ data.author +'</p>' +
-  '<p class="note-commentaire">'+ data.mark +'</p>' +
+  '<div class="note-commentaire">' + 
+  '<p class="star-comment"><i class="fas fa-star"></i></p>' +
+  '<p class="star-comment"><i class="fas fa-star"></i></p>' +
+  '<p class="star-comment"><i class="fas fa-star"></i></p>' +
+  '<p class="star-comment"><i class="fas fa-star"></i></p>' +
+  '<p class="star-comment"><i class="fas fa-star"></i></p>' +
+  '</div>' +
   '<p class="message-commentaire">'+ data.message +'</p>' +
   '<p class="date-commentaire">'+ formatDate(new Date(Date.parse(data.date.date))) +'</p>';
 
   commentaires.prepend(newComment);
+
+  for(let i = 0; i < data.mark; i++){
+    newComment.children[1].children[i].classList.add('hover');
+  }
 }
 
 function resetForm() {
