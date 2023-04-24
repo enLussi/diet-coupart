@@ -20,8 +20,25 @@ use Symfony\Component\Routing\Annotation\Route;
 class RecipeController extends AbstractController
 {
     #[Route('/', name: 'index')]
-    public function index(RecipeRepository $recipeRepository, Request $request): Response
+    public function index(RecipeRepository $recipeRepository, Request $request, OpinionRepository $opinionRepository): Response
     {
+
+        $marks = []; 
+
+        foreach($recipeRepository->findAll() as $recipe) {
+            $opinions = $opinionRepository->findBy(['recipe' => $recipe]);
+            $sum_mark = 0;
+            $average_mark = 0; 
+    
+            foreach( $opinions as $o ) {
+                $sum_mark += $o->getMark();
+            }
+    
+            if( count($opinions) > 0 ) {
+                $average_mark = $sum_mark / count($opinions);
+            }
+            array_push($marks, $average_mark);
+        }
 
         $search = $request->request->get('search');
         if (strlen($search) < 3) {
@@ -35,7 +52,8 @@ class RecipeController extends AbstractController
         }
 
         return $this->render('list_recipes/index.html.twig', [
-            'recettes' => $recipe
+            'recettes' => $recipe,
+            'marks' => $marks,
         ]);
     }
 

@@ -10,13 +10,14 @@
       <div class="list-recettes" id="list-recettes">
         {% for recette in recettes %}
           {% if app.user or not recette.isPremium %}
-          <div class="recette-card">
-            <img src="/assets/imgs/recipe/{{ recette.image }}">
-            <p class="title">{{ recette.title }}</p>
-            <p class="info">Temps de préparation : {{ recette.makingTime | date('H:i') }}</p>
-            <p class="info">Calories : {{ recette.calories }} pour 100g</p>
-            <a class="btn btn-peach" href="/recipe/{{ recette.id }}">Voir la recette</a>
-          </div>
+            {% include "_partials/_recipe_card.html.twig" %}
+            {# <div class="recette-card">
+              <img src="/assets/imgs/recipe/{{ recette.image }}">
+              <p class="title">{{ recette.title }}</p>
+              <p class="info">Temps de préparation : {{ recette.makingTime | date('H:i') }}</p>
+              <p class="info">Calories : {{ recette.calories }} pour 100g</p>
+              <a class="btn btn-peach" href="/recipe/{{ recette.id }}">Voir la recette</a>
+            </div> #}
           {% endif %}
         {% endfor %}
       </div>

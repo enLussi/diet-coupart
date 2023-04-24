@@ -2,13 +2,18 @@
   <div class="list-recettes">
     {% for recette in recettes %}
       {% if (app.user) or not recette.isPremium %}
-        <div class="recette-card">
+
+        {% include "_partials/_recipe_card.html.twig" %}
+        {# <div class="recette-card">
           <img src="/assets/imgs/recipe/{{ recette.image }}">
           <p class="title">{{ recette.title }}</p>
           <p class="info">Temps de préparation : {{ recette.makingTime | date('H:i') }}</p>
           <p class="info">Calories : {{ recette.calories }} pour 100g</p>
+          {% for i in 1..5 %}
+            <p class="star-average {% if loop.index <= marks[loop.parent.loop.index] %}hover{% endif %}"><i class="fas fa-star"></i></p>
+          {% endfor %}
           <a class="btn btn-peach" href="/recipe/{{ recette.id }}">Voir la recette</a>
-        </div>
+        </div> #}
       {% endif %}
     {% endfor %}
   </div>

@@ -98,7 +98,33 @@
 
     justify-content: end;
 
-    padding: 10px 20px 50px 20px;
+    padding: 10px 20px 10px 20px;
+
+    .note {
+      padding-left: 20px;
+  
+      font-size: 30px;
+  
+      display: flex;
+      flex-direction: row;
+      justify-content: end;
+      align-items: end;
+      column-gap: 0px;
+  
+      .star-average {
+        display: inline-block;
+        font-size: 15px;
+        color: #ddd;
+  
+        position: relative;
+  
+        width: 30px;
+      }
+  
+      .hover{
+        color: #ffcc00;
+      }
+    }
 
     img {
       position: absolute;

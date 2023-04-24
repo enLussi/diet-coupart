@@ -399,7 +399,7 @@ footer .legals p {
   display: flex;
   flex-direction: column;
   justify-content: end;
-  padding: 10px 20px 50px 20px;
+  padding: 10px 20px 10px 20px;
 }
 @media screen and (min-width: 992px) {
   .list-recettes .recette-card {
@@ -410,6 +410,25 @@ footer .legals p {
   .list-recettes .recette-card {
     width: 285px;
   }
+}
+.list-recettes .recette-card .note {
+  padding-left: 20px;
+  font-size: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: end;
+  column-gap: 0px;
+}
+.list-recettes .recette-card .note .star-average {
+  display: inline-block;
+  font-size: 15px;
+  color: #ddd;
+  position: relative;
+  width: 30px;
+}
+.list-recettes .recette-card .note .hover {
+  color: #ffcc00;
 }
 .list-recettes .recette-card img {
   position: absolute;
