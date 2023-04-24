@@ -15,7 +15,11 @@
         <tr>
           <th scope="row">{{ recette.id }}</th>
           <td>{{ recette.title }}</td>
-          <td>{{ recette.diet.label }}</td>
+          <td>
+          {% for diet in recette.diets %}
+            {{ diet.label }}, 
+          {% endfor %}
+          </td>
           <td>{% if recette.isPremium %} Premium {% else %} Gratuit {% endif %}</td>
           <td>
             <a class="btn btn-peach" href="/admin/recipe/edit/{{ recette.id }}">Modifier</a>

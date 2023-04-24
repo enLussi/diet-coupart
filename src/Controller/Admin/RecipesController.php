@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Diet;
 use App\Entity\Recipe;
 use App\Form\RecipeFormType;
+use App\Repository\DietRepository;
 use App\Repository\IngredientRepository;
 use App\Repository\RecipeRepository;
 use App\Service\PictureService;
@@ -31,7 +32,7 @@ class RecipesController extends AbstractController
 
   #[Route('/add', name: 'add')]
   public function add(Request $request, EntityManagerInterface $entityManager,
-  PictureService $pictureService, IngredientRepository $ingredientRepository): Response
+  PictureService $pictureService, IngredientRepository $ingredientRepository, DietRepository $dietRepository): Response
   {
 
     $this->denyAccessUnlessGranted('ROLE_ADMIN');
@@ -48,6 +49,12 @@ class RecipesController extends AbstractController
         $recipe->addIngredient($ingredient);
         $i = $ingredientRepository->find($ingredient->getId());
         $i->addRecipe($recipe);
+      }
+      // relation many to many régime - recettes
+      foreach($form->get('diets')->getData() as $diet) {
+        $recipe->addDiet($diet);
+        $d = $dietRepository->find($diet->getId());
+        $d->addRecipe($recipe);
       }
       
       //on récupère les images
@@ -76,7 +83,7 @@ class RecipesController extends AbstractController
 
   #[Route('/edit/{id}', name: 'edition')]
   public function edit(Request $request, Recipe $recipe, EntityManagerInterface $entityManager,
-  PictureService $pictureService, IngredientRepository $ingredientRepository): Response
+  PictureService $pictureService, IngredientRepository $ingredientRepository, DietRepository $dietRepository): Response
   {
     $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
@@ -92,6 +99,12 @@ class RecipesController extends AbstractController
         $recipe->addIngredient($ingredient);
         $i = $ingredientRepository->find($ingredient->getId());
         $i->addRecipe($recipe);
+      }
+      // relation many to many régime - recettes
+      foreach($form->get('diets')->getData() as $diet) {
+        $recipe->addDiet($diet);
+        $d = $dietRepository->find($diet->getId());
+        $d->addRecipe($recipe);
       }
       
       //on récupère les images

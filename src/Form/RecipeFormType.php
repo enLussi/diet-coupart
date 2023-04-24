@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Diet;
 use App\Entity\Ingredient;
 use App\Entity\Recipe;
+use App\Repository\DietRepository;
 use App\Repository\IngredientRepository;
 use App\Repository\RecipeRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -66,10 +67,17 @@ class RecipeFormType extends AbstractType
         'required' => false,
         'mapped' => true,
       ])
-      ->add('diet', EntityType::class, [
+      ->add('diets', EntityType::class, [
         'class' => Diet::class,
         'choice_label' => 'label',
-        'label' => 'Régime'
+        'label' => 'Régime',
+        'multiple' => true,
+        'expanded' => false,
+        'query_builder' => function(DietRepository $dr)
+        {
+          return $dr->createQueryBuilder('r')
+            ->orderBy('r.label', 'ASC');
+        },
       ])
       ->add('ingredients', EntityType::class, [
         'class' => Ingredient::class,

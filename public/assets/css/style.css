@@ -32,7 +32,7 @@ p, a, span, table {
 @media screen and (min-width: 992px) {
   .navbar .navbar-link {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
   }
 }
@@ -545,15 +545,13 @@ footer .legals p {
   padding: 10px;
   margin: 0;
   border-radius: 15px;
-  background-color: #81AE9D;
   color: white;
 }
-.steps .charac p {
-  padding: 10px;
-  margin: 0;
-  border-radius: 15px;
+.steps .charac .peach li {
   background-color: #FB9F89;
-  color: white;
+}
+.steps .charac .green li {
+  background-color: #81AE9D;
 }
 .steps .signature {
   position: absolute;
@@ -698,8 +696,9 @@ footer .legals p {
 }
 
 .page-ingredient, .page-patient, .page-recettes {
-  margin: 20px;
+  margin: 20px auto;
   padding: 20px;
+  max-width: 1400px;
 }
 
 .profil {

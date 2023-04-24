@@ -18,7 +18,7 @@ class Diet
     #[ORM\Column(length: 100)]
     private ?string $label = null;
 
-    #[ORM\OneToMany(mappedBy: 'diet', targetEntity: Recipe::class)]
+    #[ORM\ManyToMany(targetEntity: Recipe::class, mappedBy: 'diets')]
     private Collection $recipes;
 
     public function __construct()
@@ -55,7 +55,7 @@ class Diet
     {
         if (!$this->recipes->contains($recipe)) {
             $this->recipes->add($recipe);
-            $recipe->setDiet($this);
+            $recipe->addDiet($this);
         }
 
         return $this;
@@ -64,10 +64,7 @@ class Diet
     public function removeRecipe(Recipe $recipe): self
     {
         if ($this->recipes->removeElement($recipe)) {
-            // set the owning side to null (unless already changed)
-            if ($recipe->getDiet() === $this) {
-                $recipe->setDiet(null);
-            }
+            $recipe->removeDiet($this);
         }
 
         return $this;

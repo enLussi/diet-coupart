@@ -14,12 +14,6 @@
 
     <div class="collapse navbar-collapse " id="navbarDiet">
       <div class="navbar-link">
-
-        {% if app.user %}
-          <a class="" href="/logout">Me déconnecter</a>
-        {% else %}
-          <a class="" href="/login">Connexion</a>
-        {% endif %}
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="">
             <a class="" aria-current="page" href="/">Accueil</a>
@@ -51,6 +45,13 @@
             <form id="search" class="d-flex w-2" role="search" action="/recipe/" method="POST">
               <input id="input-search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
             </form>
+          </li>
+          <li>
+            {% if app.user %}
+              <a class="" href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+            {% else %}
+              <a class="" href="/login"><i class="fa-solid fa-right-to-bracket"></i></a>
+            {% endif %}
           </li>
         </ul>
       </div>

@@ -37,10 +37,6 @@ class Recipe
     #[ORM\Column]
     private ?bool $isPremium = null;
 
-    #[ORM\ManyToOne(inversedBy: 'recipes')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Diet $diet = null;
-
     #[ORM\ManyToMany(targetEntity: Ingredient::class, mappedBy: 'recipe')]
     private Collection $ingredients;
 
@@ -53,10 +49,14 @@ class Recipe
     #[ORM\Column]
     private ?int $calories = null;
 
+    #[ORM\ManyToMany(targetEntity: Diet::class, inversedBy: 'recipes')]
+    private Collection $diets;
+
     public function __construct()
     {
         $this->ingredients = new ArrayCollection();
         $this->opinions = new ArrayCollection();
+        $this->diets = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -148,18 +148,6 @@ class Recipe
         return $this;
     }
 
-    public function getDiet(): ?Diet
-    {
-        return $this->diet;
-    }
-
-    public function setDiet(?Diet $diet): self
-    {
-        $this->diet = $diet;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Ingredient>
      */
@@ -237,6 +225,30 @@ class Recipe
     public function setCalories(int $calories): self
     {
         $this->calories = $calories;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Diet>
+     */
+    public function getDiets(): Collection
+    {
+        return $this->diets;
+    }
+
+    public function addDiet(Diet $diet): self
+    {
+        if (!$this->diets->contains($diet)) {
+            $this->diets->add($diet);
+        }
+
+        return $this;
+    }
+
+    public function removeDiet(Diet $diet): self
+    {
+        $this->diets->removeElement($diet);
 
         return $this;
     }

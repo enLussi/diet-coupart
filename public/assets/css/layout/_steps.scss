@@ -37,23 +37,21 @@
 
         border-radius: 15px;
 
-        background-color: #81AE9D;
-
         color: white;
       }
     }
 
-    p {
-      padding: 10px;
-      margin: 0;
-
-      border-radius: 15px;
-
-      background-color: #FB9F89;
-
-      color: white;
+    .peach {
+      li {
+        background-color: #FB9F89;
+      }
     }
 
+    .green {
+      li {
+        background-color: #81AE9D;
+      }
+    }
   }
 
   .signature {

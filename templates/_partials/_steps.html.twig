@@ -11,7 +11,7 @@
   </div>
 
   <div class="charac">
-    <ul>
+    <ul class="green">
       {% for allergen in allergens %}
       <li>{{ allergen }}</li>
       {% endfor %}
@@ -19,7 +19,11 @@
   </div>
 
   <div class="charac">
-    <p>{{ recette.diet.label }}</p>
+    <ul class="peach">
+      {% for diet in recette.diets %}
+      <li>{{ diet.label }}</li>
+      {% endfor %}
+    </ul>
   </div>
 
   <p class="signature">Bonne Dégustation</p>

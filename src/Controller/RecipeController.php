@@ -45,9 +45,15 @@ class RecipeController extends AbstractController
             $recipe = $recipeRepository->findAll();
             
         } else {
-            $recipe = $recipeRepository->findBy([
-                'title' => $search
-            ]);
+            // $recipe = $recipeRepository->findBy([
+            //     'title' => $search
+            // ]);
+
+            $recipe = $recipeRepository->createQueryBuilder('u')
+            ->where("u.title LIKE :searchTerm")
+            ->setParameter('searchTerm', '%'.$search.'%')
+            ->getQuery()
+            ->getResult();
             
         }
 
