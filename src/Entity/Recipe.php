@@ -126,7 +126,7 @@ class Recipe
 
     public function getSteps(): ?string
     {
-        return $this->steps;
+        return nl2br($this->steps);
     }
 
     public function setSteps(string $steps): self
